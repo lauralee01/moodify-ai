@@ -1,9 +1,9 @@
 export interface MusicParams {
-  /** Suggested Spotify seed genres, e.g. ['chill', 'indie'] */
+  /** Suggested Deezer seed genres, e.g. ['chill', 'indie'] */
   genres: string[];
   /**
    * Overall energy of the music: 0 = very calm, 1 = very intense.
-   * Will later map to Spotify target_energy.
+   * Will later map to Deezer target_energy.
    */
   energy: number;
   /**
@@ -18,5 +18,10 @@ export interface MusicParams {
   acousticness: number;
   /** Optional tempo suggestion in BPM (e.g. 70 for chill, 130 for upbeat). */
   tempoBpm?: number;
+  /**
+   * Search phrase that should work well with Deezer's search API
+   * (e.g. "calm acoustic ambient piano relax").
+   */
+  deezerQuery?: string;
 }
 

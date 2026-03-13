@@ -6,7 +6,7 @@ import { MusicParams } from './types/music-params.interface';
 export interface MoodResponse {
   /** Short, human-friendly reply to show in the chat UI. */
   reply: string;
-  /** Structured parameters we will later feed into Spotify. */
+  /** Structured parameters we will later feed into Deezer. */
   musicParams: MusicParams;
 }
 
@@ -22,8 +22,7 @@ export class MoodService {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     this.model = genAI.getGenerativeModel({
-      // Fast, cheap model is enough for this use case.
-      model: 'gemini-1.5-flash',
+      model: 'gemini-flash-latest',
     });
   }
 
@@ -33,7 +32,7 @@ You are MoodifyAI, a friendly music mood assistant.
 
 Your job:
 - Read the user's message about how they feel or what they want to listen to.
-- Decide suitable music parameters that we can use with the Spotify Recommendations API.
+- Decide suitable music parameters for a music recommendation API (for example, Deezer).
 
 Respond with **ONLY valid JSON**, no backticks, no extra text.
 
@@ -45,13 +44,14 @@ JSON shape:
     "energy": number,         // 0.0–1.0 (0 = very calm, 1 = very energetic)
     "valence": number,        // 0.0–1.0 (0 = sad, 1 = very happy)
     "acousticness": number,   // 0.0–1.0 (0 = electronic, 1 = acoustic/organic)
-    "tempoBpm"?: number       // optional, typical BPM like 60–180
+    "tempoBpm"?: number,      // optional, typical BPM like 60–180
+    "deezerQuery": string     // a good search phrase for Deezer search, e.g. "calm acoustic ambient relax"
   }
 }
 
 Rules:
 - Always return valid JSON.
-- Keep "genres" simple words that Spotify could understand as seed genres.
+- Keep "genres" simple words that common music services could understand as seed genres.
 - Clamp numeric values to the 0–1 range where specified.
 `;
 
@@ -59,12 +59,11 @@ Rules:
 
     try {
       const result = await this.model.generateContent([prompt]);
-      console.log('result', result);
       const text = result.response.text();
-      console.log('text', text);
       const parsed = JSON.parse(text) as MoodResponse;
       return parsed;
     } catch (error) {
+      console.error('Gemini analyzeMood error:', error);
       // For now we surface a generic error; later we can log details.
       throw new InternalServerErrorException(
         'Failed to analyze mood with Gemini',
