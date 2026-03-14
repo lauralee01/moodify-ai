@@ -6,4 +6,8 @@ export class RecommendationsRequestDto {
    * Not required by Deezer, but we keep it for flexibility.
    */
   genres?: string[];
+  /**
+   * When set, we fetch tracks by this artist from Deezer so results match the artist.
+   */
+  artistName?: string;
 }

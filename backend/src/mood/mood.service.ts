@@ -45,7 +45,8 @@ JSON shape:
     "valence": number,
     "acousticness": number,
     "tempoBpm"?: number,
-    "deezerQuery": string
+    "deezerQuery": string,
+    "artistName"?: string
   }
 }
 
@@ -64,6 +65,7 @@ Rules:
 - DO NOT include mood adjectives unless they are genres (e.g. "chill" is OK, "peaceful" is NOT).
 - Always include at least one strong genre keyword.
 - If the user mentions a region or culture, include it (e.g. "nigerian gospel", "korean ballad").
+- If the user asks for a specific artist or band by name, set "artistName" to that name exactly (e.g. "Nathaniel Bassey", "Burna Boy"). Use the spelling the user used. Leave "artistName" out or null if no specific artist is requested.
 `;
 
     const prompt = `${systemInstruction}\n\nUser message:\n${message}`;

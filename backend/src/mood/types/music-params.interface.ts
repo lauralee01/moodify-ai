@@ -23,5 +23,10 @@ export interface MusicParams {
    * (e.g. "calm acoustic ambient piano relax").
    */
   deezerQuery?: string;
+  /**
+   * When the user asks for a specific artist, set this so we can fetch
+   * that artist's tracks from Deezer (guarantees artist match).
+   */
+  artistName?: string;
 }
 

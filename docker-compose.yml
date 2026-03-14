@@ -1,0 +1,20 @@
+# Local PostgreSQL for MoodifyAI (conversations + messages).
+# Run: docker compose up -d
+# Stop: docker compose down
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: moodify-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: moodify
+      POSTGRES_PASSWORD: moodify
+      POSTGRES_DB: moodify
+    ports:
+      - "5432:5432"
+    volumes:
+      - moodify_pgdata:/var/lib/postgresql/data
+
+volumes:
+  moodify_pgdata:
