@@ -5,7 +5,7 @@ type MobileHeaderProps = {
 
 export function MobileHeader({ title, onMenuClick }: MobileHeaderProps) {
   return (
-    <header className="flex shrink-0 items-center gap-3 border-b border-[#2f2f2f] bg-[#212121] px-4 py-3 md:hidden">
+    <header className="fixed top-0 left-0 right-0 z-20 flex items-center gap-3 border-b border-[#2f2f2f] bg-[#212121] px-4 py-3 md:hidden">
       <button
         type="button"
         aria-label="Open menu"

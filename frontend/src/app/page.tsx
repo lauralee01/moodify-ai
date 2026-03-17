@@ -183,7 +183,7 @@ export default function Home() {
           onMenuClick={() => setSidebarOpen(true)}
         />
 
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto pt-14 pb-32 md:pt-0 md:pb-0">
           {messages.length === 0 && <EmptyState />}
 
           <div className="mx-auto max-w-3xl space-y-6 px-4 py-4 sm:px-0 sm:py-6">

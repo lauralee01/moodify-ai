@@ -55,7 +55,7 @@ export function ChatInput({
   }
 
   return (
-    <div className="sticky bottom-0 left-0 right-0 bg-[#212121]/95 px-4 pb-[max(env(safe-area-inset-bottom),1rem)] pt-3 backdrop-blur">
+    <div className="fixed inset-x-0 bottom-0 z-20 bg-[#212121]/95 px-4 pb-[max(env(safe-area-inset-bottom),1rem)] pt-3 backdrop-blur md:static md:bg-[#212121] md:pb-4 md:pt-3 md:backdrop-blur-0">
       <div className="mx-auto max-w-3xl">
         <form onSubmit={handleSubmit} className="flex w-full items-end">
           <div className="relative flex min-h-[44px] flex-1 items-end rounded-xl bg-[#303030] px-4 py-2.5 shadow-sm focus-within:border focus-within:border-[#565869]">
