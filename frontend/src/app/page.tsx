@@ -167,7 +167,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen bg-[#212121] text-[#ECECF1]">
+    <div className="flex min-h-screen bg-[#212121] text-[#ECECF1]">
       <ChatSidebar
         conversations={conversations}
         activeId={activeId}

@@ -9,8 +9,7 @@ export function EmptyState() {
         music that fits.
       </p>
       <p className="text-xs text-[#6B6B7B]">
-        e.g. &quot;I feel anxious but want something hopeful&quot; or
-        &quot;Nigerian gospel worship&quot;
+        e.g. &quot;I feel anxious but want something hopeful&quot;
       </p>
     </div>
   );
