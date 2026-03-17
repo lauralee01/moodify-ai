@@ -61,7 +61,7 @@ export function ChatInput({
           <div className="relative flex min-h-[44px] flex-1 items-end rounded-xl bg-[#303030] px-4 py-2.5 shadow-sm focus-within:border focus-within:border-[#565869]">
             <textarea
               ref={textareaRef}
-              className="min-h-[28px] max-h-[240px] w-full flex-1 resize-none overflow-y-auto bg-transparent pr-10 text-sm leading-relaxed text-[#ffffff] outline-none placeholder:text-[#8E8EA0]"
+              className="min-h-[28px] max-h-[240px] w-full flex-1 resize-none overflow-y-auto bg-transparent pr-10 text-base leading-relaxed text-[#ffffff] outline-none placeholder:text-[#8E8EA0]"
               placeholder="Ask for music based on your mood…"
               value={value}
               onChange={(e) => onChange(e.target.value)}
