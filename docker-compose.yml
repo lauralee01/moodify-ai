@@ -8,9 +8,9 @@ services:
     container_name: moodify-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: moodify
-      POSTGRES_PASSWORD: moodify
-      POSTGRES_DB: moodify
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
